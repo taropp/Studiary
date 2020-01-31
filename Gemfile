@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.1.6'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 1.3.0' #js圧縮機
 # gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
@@ -26,8 +26,10 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'rubocop-airbnb'
+  gem 'rubocop-airbnb' #Ruby警察
   gem 'sqlite3'
+  gem "rspec-rails" #test
+  gem "factory_bot_rails" #DB登録modelビルド簡略化
 end
 
 group :development do
@@ -46,7 +48,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'
-gem 'omniauth'
+gem 'devise'#全ての元凶：user周り(詳しくわからない闇)
+gem 'omniauth'#sns認証
 gem 'omniauth-facebook'
-gem 'dotenv-rails'
+gem 'dotenv-rails' #環境変数を管理
