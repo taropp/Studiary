@@ -4,6 +4,7 @@ gem 'rails', '~> 5.1.6'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0' #js圧縮機
+gem 'faker'
 # gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
@@ -52,3 +53,11 @@ gem 'devise'#全ての元凶：user周り(詳しくわからない闇)
 gem 'omniauth'#sns認証
 gem 'omniauth-facebook'
 gem 'dotenv-rails' #環境変数を管理
+gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'kaminari-bootstrap'
+# gem 'therubyracer' # lessを翻訳するために必要
+gem 'mini_racer'
+gem 'twitter-bootstrap-rails', '~> 4.0'
+gem 'jquery-rails'
+gem 'kaminari' #ページネーション
