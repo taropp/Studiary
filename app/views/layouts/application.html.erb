@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CloneApp</title>
+        <title><%= full_title(yield(:title))%></title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,8 @@
         <header>
             <nav>
               <% if user_signed_in? %>
-                <strong><%= link_to current_user.name, pages_show_path %></strong>
+                <%= link_to 'CloneApp', root_path %>
+                <%= link_to 'マイページ', current_user%>
                 <%= link_to 'プロフィール変更', edit_user_registration_path %>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
               <% else %>

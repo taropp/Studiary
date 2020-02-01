@@ -3,6 +3,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
+  validates :email, presence: true
+  
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
@@ -16,7 +18,6 @@ class User < ApplicationRecord
         image:  auth.info.image
       )
     end
-
     user
   end
 end
