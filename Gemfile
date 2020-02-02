@@ -53,10 +53,10 @@ gem 'devise'#全ての元凶：user周り(詳しくわからない闇)
 gem 'omniauth'#sns認証
 gem 'omniauth-facebook'
 gem 'dotenv-rails' #環境変数を管理
-gem 'bootstrap', '~> 4.1.1'
+# gem 'bootstrap', '~> 4.1.1' => 競合していたためコメントアウト。今後間違えないよう放置。
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'kaminari-bootstrap'
-# gem 'therubyracer' # lessを翻訳するために必要
+# gem 'therubyracer' # lessを翻訳するために必要 => mini_racerに座を奪われた
 gem 'mini_racer'
 gem 'twitter-bootstrap-rails', '~> 4.0'
 gem 'jquery-rails'

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   #:lockable, :timeoutable, :trackable and :omniauthable, :confirmable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable
