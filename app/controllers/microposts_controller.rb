@@ -7,7 +7,7 @@ class MicropostsController < ApplicationController
       redirect_to root_path
     else
       @feed_items = []
-      render 'pages/home'
+      render template: 'pages/home'
     end
   end
   def destroy
@@ -17,7 +17,7 @@ class MicropostsController < ApplicationController
   end
   private
     def micropost_params
-      params.require(:micropost).permit(:content)
+      params.require(:micropost).permit(:content, :picture)
     end
     def correct_user
       @micropost = current_user.microposts.find_by(id: params[:id])

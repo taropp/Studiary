@@ -44,6 +44,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -61,3 +62,5 @@ gem 'mini_racer'
 gem 'twitter-bootstrap-rails', '~> 4.0'
 gem 'jquery-rails'
 gem 'kaminari' #ページネーション
+gem 'carrierwave'
+gem 'mini_magick'
