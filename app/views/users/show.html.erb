@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <%= gravatar_for @user %>
-<p>名前 : <%= @user.name %></p>
+<p><%= @user.name %></p>
 <div>
   <% if @user.microposts.any? %>
     <h3>Microposts (<%= @user.microposts.count %>)</h3>

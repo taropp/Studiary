@@ -1,11 +1,10 @@
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
+User.create!(name:  "Potepan",
+             email: "example@hoge.com",
              password:              "foobar",
              password_confirmation: "foobar")
-
 50.times do |n|
   name  = Faker::Games::Pokemon.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@hoge.com"
   password = "password"
   User.create!(name:  name,
                email: email,
