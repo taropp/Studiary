@@ -21,4 +21,7 @@ class User < ApplicationRecord
     end
     user
   end
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
 end
