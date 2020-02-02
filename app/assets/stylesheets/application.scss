@@ -1,10 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-ul {
+ul, ol{
   list-style: none;
 }
-
 .pages li{
   display: inline;
 }
