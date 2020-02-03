@@ -28,6 +28,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rubocop-airbnb' #Ruby警察
+  gem 'rubocop-faker', '~> 0.2.0'
   gem 'sqlite3'
   gem "rspec-rails" #test
   gem "factory_bot_rails" #DB登録modelビルド簡略化
