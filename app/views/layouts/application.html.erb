@@ -19,7 +19,7 @@
       <nav>
         <% if user_signed_in? %>
           <%= link_to 'CloneApp', root_path %>
-          <%= link_to 'Users', users_path %>
+          <%= link_to 'ユーザー一覧', users_path %>
           <%= link_to 'マイページ', current_user%>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
         <% else %>
