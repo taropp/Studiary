@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title><%= full_title(yield(:title))%></title>
-        <%= csrf_meta_tags %>
-
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
-    <body>
-        <header>
-            <dl class="searchbox">
-              <%= search_form_for @search, url: microposts_path do |f| %>
-                <dt><%= f.text_field :content_cont ,placeholder: '検索するテキストを入力...' %></dt>
-                <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-              <% end %>
-            </dl>
-            <nav>
-              <% if user_signed_in? %>
-                <%= link_to 'CloneApp', root_path %>
-                <%= link_to 'Users', users_path %>
-                <%= link_to 'マイページ', current_user%>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-              <% else %>
-                <%= link_to 'サインアップ', new_user_registration_path %>
-                <%= link_to 'ログイン', new_user_session_path %>
-              <% end %>
-            </nav>
-        </header>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-    </body>
+  <head>
+      <title><%= full_title(yield(:title))%></title>
+      <%= csrf_meta_tags %>  
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <dl class="searchbox">
+        <% if user_signed_in? %>
+          <%= search_form_for @search, url: microposts_path do |f| %>
+            <dt><%= f.text_field :content_cont ,placeholder: '検索するテキストを入力...' %></dt>
+            <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+          <% end %>
+        <% end %>
+      </dl>
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to 'CloneApp', root_path %>
+          <%= link_to 'Users', users_path %>
+          <%= link_to 'マイページ', current_user%>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'サインアップ', new_user_registration_path %>
+          <%= link_to 'ログイン', new_user_session_path %>
+        <% end %>
+      </nav>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
 </html>
