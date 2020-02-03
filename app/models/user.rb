@@ -33,7 +33,7 @@ class User < ApplicationRecord
     Micropost.where("user_id = ?", id)
   end
   def follow(other_user)
-    self.active_relationships.create(followed_id: other_user.id)
+    following << other_user
   end
 
   def unfollow(other_user)
