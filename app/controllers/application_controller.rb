@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   # deviseコントローラーにストロングパラメータを追加する          
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
+  
+  def set_search
+    @search = Micropost.ransack(params[:q])
+    @results = @search.result.page(params[:page])
+  end
+  
   def after_sign_in_path_for(resource)
     user_path(current_user)
   end

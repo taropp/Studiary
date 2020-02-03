@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users,      only: [:show, :index]
-  resources :microposts, only: [:create, :destroy]
+  resources :microposts, only: [:create, :destroy, :index]
   resources :relationships,       only: [:create, :destroy]
 end
