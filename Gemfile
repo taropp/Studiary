@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0' #js圧縮機
+gem 'uglifier', '>= 1.3.0' # js圧縮機
 gem 'faker'
 # gem 'therubyracer', platforms: :ruby
 
@@ -27,11 +27,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'rubocop-airbnb' #Ruby警察
+  gem 'rubocop-airbnb' # Ruby警察
   gem 'rubocop-faker', '~> 0.2.0'
   gem 'sqlite3'
-  gem "rspec-rails" #test
-  gem "factory_bot_rails" #DB登録modelビルド簡略化
+  gem "rspec-rails" # test
+  gem "factory_bot_rails" # DB登録modelビルド簡略化
 end
 
 group :development do
@@ -51,10 +51,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'#全ての元凶：user周り(詳しくわからない闇)
-gem 'omniauth'#sns認証
+gem 'devise' # 全ての元凶：user周り(詳しくわからない闇)
+gem 'omniauth' # sns認証
 gem 'omniauth-facebook'
-gem 'dotenv-rails' #環境変数を管理
+gem 'dotenv-rails' # 環境変数を管理
 # gem 'bootstrap', '~> 4.1.1' => 競合していたためコメントアウト。今後間違えないよう放置。
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'kaminari-bootstrap'
@@ -62,7 +62,7 @@ gem 'kaminari-bootstrap'
 gem 'mini_racer'
 gem 'twitter-bootstrap-rails', '~> 4.0'
 gem 'jquery-rails'
-gem 'kaminari' #ページネーション
+gem 'kaminari' # ページネーション
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack', '~> 2.3', '>= 2.3.2'
