@@ -3,6 +3,11 @@ class MicropostsController < ApplicationController
   def index
     @microposts = Micropost.all
   end
+  def show
+    @micropost = Micropost.find_by(id: params[:id])
+    @user = @micropost.user
+    @likes_count = Like.where(post_id: @micropost.id).count
+  end
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save

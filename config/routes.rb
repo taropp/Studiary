@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :users,      only: [:show, :index]
-  resources :microposts, only: [:create, :destroy, :index]
-  resources :relationships,       only: [:create, :destroy]
+  post "likes/:post_id/create", to: "likes#create"
+  post "likes/:post_id/destroy", to: "likes#destroy"
+  resources :users,         only: [:show, :index]
+  resources :microposts,    only: [:create, :destroy, :index, :show]
+  resources :relationships, only: [:create, :destroy]
 end

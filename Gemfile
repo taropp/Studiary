@@ -66,3 +66,4 @@ gem 'kaminari' #ページネーション
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack', '~> 2.3', '>= 2.3.2'
+gem 'font-awesome-sass'

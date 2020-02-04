@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # deviseコントローラーにストロングパラメータを追加する          
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
-  
+
   def set_search
     @search = Micropost.ransack(params[:q])
     @results = @search.result.page(params[:page])

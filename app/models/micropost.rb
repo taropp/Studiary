@@ -6,6 +6,10 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
   
+  def user
+    User.find_by(id: self.user_id)
+  end
+  
   private
     def picture_size
       if picture.size > 5.megabytes
