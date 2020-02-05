@@ -2,11 +2,12 @@
 <%= @micropost.content %>
 <% if Like.find_by(user_id: current_user.id, post_id: @micropost.id) %>
   <%= link_to("/likes/#{@micropost.id}/destroy", {method: "post"}) do %>
-    <i class="far fa-heart"></i>
+    <i class="fas fa-heart"></i>
   <% end %>
 <% else %>
   <%= link_to("/likes/#{@micropost.id}/create", {method: "post"}) do %>
-    <i class="fas fa-heart"></i>
+    <i class="far fa-heart"></i>
   <% end %>
 <% end %>
 <%= @likes_count %>
+<%= render "shared/comment" %>

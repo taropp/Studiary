@@ -8,7 +8,9 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  #:lockable, :timeoutable, :trackable and :omniauthable, :confirmable
+  has_many :comments, dependent: :destroy
+  
+  #:lockable, :timeoutable, :trackable, :confirmable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
