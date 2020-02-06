@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :comments, dependent: :destroy
-  
+
   #:lockable, :timeoutable, :trackable, :confirmable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable
@@ -48,9 +48,9 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
-  
+
   def self.guest
-    find_or_create_by!(name: 'セレビィ',email: 'serebeee8@example.com') do |user|
+    find_or_create_by!(name: 'セレビィ', email: 'serebeee8@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end
