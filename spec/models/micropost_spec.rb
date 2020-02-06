@@ -44,6 +44,7 @@ RSpec.describe Micropost, type: :model do
     before do
       @micropost1 = @user.microposts.create(content: "a" * 141)
       @micropost2 = @user.microposts.create(content: "a" * 139)
+      @micropost3 = @user.microposts.create(content: "a" * 140)
     end
 
     context "140字を超える時" do
@@ -55,6 +56,7 @@ RSpec.describe Micropost, type: :model do
     context "140字を超えない時" do
       it "投稿しましたと返すこと" do
         expect(@micropost2).to be_valid
+        expect(@micropost3).to be_valid
       end
     end
   end
