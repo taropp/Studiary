@@ -4,10 +4,11 @@
   </small>
   <nav>
     <ul>
-      <li><%= link_to "Contact", '#' %></li>
       <li>
-        <%= link_to 'shared/micropost_form', remote: true, class: "btn btn-lg btn-primary" do %>
-          <i class="fas fa-camera"></i>
+        <% if user_signed_in? %>
+          <%= link_to 'shared/micropost_form', remote: true, class: "btn btn-lg btn-primary" do %>
+            <i class="fas fa-camera"></i>
+          <% end %>
         <% end %>
       </li>
     </ul>
