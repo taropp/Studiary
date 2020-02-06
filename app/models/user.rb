@@ -9,7 +9,13 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :comments, dependent: :destroy
+<<<<<<< HEAD
 
+=======
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  
+>>>>>>> 1543292... 通知機能追加
   #:lockable, :timeoutable, :trackable, :confirmable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable
@@ -52,6 +58,17 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by!(name: 'セレビィ', email: 'serebeee8@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+    end
+  end
+  
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
     end
   end
 end
