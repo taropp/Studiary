@@ -11,7 +11,7 @@ class Micropost < ApplicationRecord
   def user
     User.find_by(id: user_id)
   end
-  
+
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
@@ -29,6 +29,7 @@ class Micropost < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
   def create_notification_comment!(current_user, comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
