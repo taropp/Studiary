@@ -5,31 +5,31 @@
   　<%= csrf_meta_tags %>  
   　<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   　<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  　<%= render 'layouts/shim' %>
   </head>
   <body>
-    <header>
-      <dl class="searchbox">
-        <% if user_signed_in? %>
-          <%= search_form_for @search, url: microposts_path do |f| %>
-            <dt><%= f.text_field :content_cont ,placeholder: '検索するテキストを入力...' %></dt>
-            <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-          <% end %>
-        <% end %>
-      </dl>
-      <nav>
-        <%= link_to 'CloneApp', root_path %>
-        <% if user_signed_in? %>
-          <%= link_to 'ユーザー一覧', users_path %>
-          <%= link_to 'マイページ', current_user%>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-        <% end %>
-      </nav>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to 'CloneApp', root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to 'ユーザー一覧', users_path %></li>
+              <li><%= link_to 'マイページ', current_user%></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
