@@ -8,14 +8,11 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  has_many :comments, dependent: :destroy
-<<<<<<< HEAD
 
-=======
+  has_many :comments, dependent: :destroy
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-  
->>>>>>> 1543292... 通知機能追加
+
   #:lockable, :timeoutable, :trackable, :confirmable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :validatable
