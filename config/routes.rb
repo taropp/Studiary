@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  get 'shared/micropost_form', to: "microposts#new"
   post "likes/:post_id/create", to: "likes#create"
   post "likes/:post_id/destroy", to: "likes#destroy"
   resources :users,         only: [:show, :index]

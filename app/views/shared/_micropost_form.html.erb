@@ -1,16 +1,20 @@
-<%= form_for(@micropost) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "記入欄" %>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">    
+    <%= form_for(@micropost) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="field">
+        <%= f.text_area :content, placeholder: "記入欄" %>
+      </div>
+      <%= f.file_field :picture, accept: '/jpg/png' %>
+      <%= f.submit "投稿", class: "btn btn-primary" %>
+    <% end %>
+    <script type="text/javascript">
+      $('#micropost_picture').bind('change', function() {
+        var size_in_megabytes = this.files[0].size/1024/1024;
+        if (size_in_megabytes > 5) {
+          alert('5MB以下にして下さい。');
+        }
+      });
+    </script>
   </div>
-  <%= f.file_field :picture, accept: '/jpg/png' %>
-  <%= f.submit "投稿", class: "btn btn-primary" %>
-<% end %>
-<script type="text/javascript">
-  $('#micropost_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('5MB以下にして下さい。');
-    }
-  });
-</script>
+</div>

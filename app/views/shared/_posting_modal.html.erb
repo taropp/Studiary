@@ -1,0 +1,21 @@
+<div class="modal fade" id="postingModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">写真を投稿する</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'posts/post_form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          閉じる
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
