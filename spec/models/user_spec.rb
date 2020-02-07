@@ -43,7 +43,4 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email]).to include("はすでに存在します")
   end
 
-  it "is invalid with a duplicate email address"
-
-  it "returns a user's full name as a string"
 end
