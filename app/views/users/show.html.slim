@@ -7,11 +7,10 @@ p = @user.name
 - if current_user == @user
   = link_to 'プロフィール変更', edit_user_registration_path
 
-
 = render 'follow_form'
-  - if @user.microposts.any?
-    h3 投稿一覧 
-      = @user.microposts.count
-    ol .microposts
+
+- if @user.microposts.any?
+  ul
+    li
       = render @microposts
-    = paginate @microposts
+  = paginate @microposts
