@@ -12,6 +12,14 @@
       <div class="container">
         <%= link_to 'CloneApp', root_path, id: "logo" %>
         <nav>
+          <ul class="searchbox nav navbar navbar-center text-center">
+            <% if user_signed_in? %>
+              <%= search_form_for @search, url: microposts_path do |f| %>
+                <li><%= f.text_field :content_or_user_name_cont ,placeholder: '名前/投稿内容' %></li>
+                <li><%= f.submit ("検索") , class: 'search-btn'%></li>
+              <% end %>
+            <% end %>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li><%= link_to 'ユーザー一覧', users_path %></li>
