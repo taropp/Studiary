@@ -5,8 +5,8 @@ class LikesController < ApplicationController
       post_id: params[:post_id]
     )
     @like.save
-    # post = Micropost.find_by(id: params[:post_id])
-    # post.create_notification_like!(current_user)
+    post = Micropost.find_by(id: params[:micropost_id])
+    post.create_notification_like!(current_user)
     redirect_to("/microposts/#{params[:post_id]}")
   end
 

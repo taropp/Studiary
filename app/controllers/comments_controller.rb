@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
                                            content: params[:comment][:content])
     @comments = @micropost.comments
     if @comment.save
-      # @post.create_notification_comment!(current_user, @comment.id)
+      @micropost.create_notification_comment!(current_user, @comment.id)
       redirect_back(fallback_location: root_path)
     else
       flash[:notice] = "コメントを入力してください"
