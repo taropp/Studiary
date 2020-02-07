@@ -1,0 +1,14 @@
+#postingModal.modal.fade[tabindex="-1" role="dialog"]
+  .modal-dialog.modal-sm[role="document"]
+    .modal-content
+      .modal-header
+        button.close[type="button" data-dismiss="modal" aria-label="Close"]
+          span[aria-hidden="true"]
+            | ×
+        h4.modal-title
+          | 写真を投稿する
+      .modal-body
+        = render 'posts/post_form'
+      .modal-footer
+        button.btn.btn-default[type="button" data-dismiss="modal"]
+          |  閉じる 

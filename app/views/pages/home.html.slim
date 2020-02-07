@@ -1,0 +1,13 @@
+- provide(:title, "home")
+div
+  aside
+    section
+      = render 'shared/user_info'
+    section.stats
+      = render 'shared/stats'
+    section
+      = render 'shared/micropost_form'
+  div
+    h3
+      | 投稿一覧
+    = render 'shared/feed'

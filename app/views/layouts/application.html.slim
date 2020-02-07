@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    |  　
+    title
+      = full_title(yield(:title))
+    |  　
+    = csrf_meta_tags
+    |  　
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    |  　
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header.navbar.navbar-fixed-top.navbar-inverse
+      .container
+        = link_to 'CloneApp', root_path, id: "logo"
+        nav
+          ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              li.search
+                = search_form_for @search, url: microposts_path do |f|
+                  = f.text_field :content_or_user_name_cont ,placeholder: '検索：名前/投稿内容'
+              li
+                = link_to 'ユーザー一覧', users_path
+              li
+                = link_to 'マイページ', current_user
+              li
+                = link_to 'ログアウト', destroy_user_session_path, method: :delete
+            - else
+              li
+                = link_to 'サインアップ', new_user_registration_path
+              li
+                = link_to 'ログイン', new_user_session_path
+    .container
+      p.notice
+        = notice
+      p.alert
+        = alert
+      = yield
+      = render 'layouts/footer'

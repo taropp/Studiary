@@ -1,0 +1,23 @@
+= link_to(@user.name, "/users/#{@user.id}")
+= @micropost.content
+- if Like.find_by(user_id: current_user.id, post_id: @micropost.id)
+  = link_to("/likes/#{@micropost.id}/destroy", {method: "post"}) do
+    i.fas.fa-heart
+- else
+  = link_to("/likes/#{@micropost.id}/create", {method: "post"}) do
+    i.far.fa-heart
+= @likes_count
+h2
+  | コメント一覧
+- @comments.each do |c|
+  div
+    |  <a href="/users/
+    = c.user.id
+    | ">
+    = c.user.name
+    = c.content
+    hr
+= form_for [@micropost, @comment] do |f|
+  = f.text_field :content
+  br
+  = f.submit 'コメントする'
