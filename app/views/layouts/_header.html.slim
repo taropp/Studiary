@@ -1,9 +1,11 @@
-header.navbar.navbar-fixed-top.navbar-inverse
+div class="header navbar navbar-fixed-top navbar-inverse"
   .container
     = link_to 'CloneApp', root_path, id: "logo"
     nav
-      ul.nav.navbar-nav.navbar-right
+      ul class="nav navbar-nav navbar-right"
         - if user_signed_in?
+          li
+            = link_to '通知', notifications_path
           li
             = link_to 'ユーザー一覧', users_path
           li

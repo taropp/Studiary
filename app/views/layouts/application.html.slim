@@ -21,6 +21,8 @@ html
                 = search_form_for @search, url: microposts_path do |f|
                   = f.text_field :content_or_user_name_cont ,placeholder: '検索：名前/投稿内容'
               li
+                = link_to '通知', notifications_path
+              li
                 = link_to 'ユーザー一覧', users_path
               li
                 = link_to 'マイページ', current_user
