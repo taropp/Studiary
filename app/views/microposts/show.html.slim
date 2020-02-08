@@ -11,11 +11,12 @@ h2
   | コメント一覧
 - @comments.each do |c|
   div
-    |  <a href="/users/
+    | <a href="/users/
     = c.user.id
     | ">
     = c.user.name
     = c.content
+    | </a>
     hr
 = form_for [@micropost, @comment] do |f|
   = f.text_field :content

@@ -22,3 +22,10 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+5.times do |n|
+  Like.create!(
+    post_id: 295,
+    user_id: n + 1
+    )
+end
