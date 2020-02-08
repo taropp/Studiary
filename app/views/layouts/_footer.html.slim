@@ -1,28 +1,13 @@
-footer.footer
+footer.footer.container
   small
     |  The CloneApp by 
     a[href="https://twitter.com/taro89apo"]
       | Takumi Kobayashi
+    div
+      = link_to '利用規約', page_path('terms')
   nav
     ul
       li
         - if user_signed_in?
-          i.fas.fa-camera class="btn btn-lg btn-primary" data-toggle="modal" data-target="#modal-posting"
-            .modal id="modal-posting" tabindex="-1"
-              .modal-dialog
-                .modal-content
-                  = form_for(@micropost) do |f|
-                    = render 'shared/error_messages', object: f.object
-                    .modal-body
-                      .form-group.field.tweet
-                        = f.text_area :content, placeholder: "記入欄"
-                      = f.file_field :picture, accept: '/jpeg/png'
-                    .modal-footer.actopns
-                      = f.submit "投稿", class: "btn btn-primary"
-                  javascript: type="text/javascript"
-                    $('#micropost_picture').bind('change', function() {
-                     var size_in_megabytes = this.files[0].size/1024/1024;
-                     if (size_in_megabytes > 5) {
-                      alert('5MB以下にして下さい。');
-                     }
-                    });
+          = link_to 'shared/micropost_form', remote: true, class: "btn btn-lg btn-primary" do
+            i.fas.fa-camera
