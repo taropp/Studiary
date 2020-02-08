@@ -1,0 +1,26 @@
+- visitor = notification.visitor
+- visited = notification.visited
+div class="col-md-6 mx-auto"
+  span
+    = link_to user_path(visitor) do
+      strong
+        = visitor.name
+    = "さんが"
+    - case notification.action
+    - when 'follow' 
+      = "あなたをフォローしました"
+    - when 'like'
+      = "にいいねしました"
+    - when 'comment'
+      - if notification.micropost.user_id == visited.id
+        = link_to "あなたの投稿", notification.micropost, style: "foot-weight: bold"
+      - else
+        span
+          = link_to micropost_path(notification.post) do
+            = image_tag avatar_usrl(notification.micropost).to_s, class: "icon_mini"
+            strong
+              = notification.micropost.user.name + "さんの投稿"
+      = "にコメントしました"
+div class="small text-muted text-right"
+  = time_ago_in_words(notification.created_at).upcase
+hr
