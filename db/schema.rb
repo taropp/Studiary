@@ -43,10 +43,12 @@ ActiveRecord::Schema.define(version: 2020_02_05_070157) do
     t.integer "visitor_id", null: false
     t.integer "visited_id", null: false
     t.integer "micropost_id"
+    t.integer "comment_id"
     t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
     t.index ["micropost_id"], name: "index_notifications_on_micropost_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
