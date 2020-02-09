@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "generates associated data from a factory" do
+    comment = FactoryBot.create(:comment)
+    puts "This comment's is #{comment.micropost.inspect}"
+    puts "This comment's user is #{comment.user.inspect}"
+  end
 end

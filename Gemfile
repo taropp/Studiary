@@ -31,6 +31,7 @@ group :development, :test do
   gem 'rubocop-faker', '~> 0.2.0'
   gem 'sqlite3'
   gem "rspec-rails" # test
+  gem 'spring-commands-rspec'
   gem "factory_bot_rails" # DB登録modelビルド簡略化
 end
 
@@ -41,7 +42,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'spring-commands-rspec'
 end
 
 group :production do
