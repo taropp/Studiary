@@ -3,7 +3,11 @@ class MicropostsController < ApplicationController
   def index
     @microposts = Micropost.all
   end
-
+  
+  def new
+    @micropost = Micropost.new
+  end
+    
   def show
     @micropost = Micropost.find_by(id: params[:id])
     @user = @micropost.user

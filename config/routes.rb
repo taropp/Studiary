@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post "likes/:post_id/create", to: "likes#create"
   post "likes/:post_id/destroy", to: "likes#destroy"
   resources :users,         only: [:show, :index]
-  resources :microposts,    only: [:create, :destroy, :index, :show] do
+  resources :microposts,    only: [:create, :destroy, :index, :show, :new] do
     resources :comments, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
