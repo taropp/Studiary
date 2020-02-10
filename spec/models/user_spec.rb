@@ -42,9 +42,9 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email]).to include("はすでに存在します")
   end
   
-  # it "複数の投稿を持てること" do
-  #   user = FactoryBot.create(:user, :with_microposts)
-  #   user.valid?
-  #   expect(user.microposts.length).to eq 5
-  # end
+  it "複数の投稿を持てること" do
+    user = FactoryBot.create(:user, :with_microposts)
+    user.valid?
+    expect(user.microposts.length).to eq 5
+  end
 end

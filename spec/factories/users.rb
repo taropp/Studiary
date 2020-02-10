@@ -5,7 +5,7 @@ FactoryBot.define do
     password { "pippikachu" }
   end
   
-  # trait :with_microposts do
-  #   after(:create) { |user| create_list(:micropost, 5, user: user) }
-  # end
+  trait :with_microposts do
+    after(:create) { |user| create_list(:micropost, 5, user: user) }
+  end
 end
