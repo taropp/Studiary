@@ -61,7 +61,7 @@ RSpec.describe Micropost, type: :model do
     end
   end
   
-  it "can have many comments" do
+  it "複数のコメントを持てること" do
     micropost = FactoryBot.create(:micropost, :with_comments)
     expect(micropost.comments.length).to eq 5
   end
