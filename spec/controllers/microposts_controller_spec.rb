@@ -10,7 +10,7 @@ RSpec.describe MicropostsController, type: :controller do
       it "responds succsessfully" do
         sign_in @user
         get :index
-        expect(response).to be_success
+        expect(response).to be_successful
       end
       
       it "returns a 200 response" do
@@ -43,7 +43,7 @@ RSpec.describe MicropostsController, type: :controller do
       it "閲覧ができること" do
         sign_in @user
         get :show, params: { id: @micropost.id }
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
     
@@ -57,7 +57,7 @@ RSpec.describe MicropostsController, type: :controller do
       it "閲覧ができること" do
         sign_in @user
         get :show, params: { id: @micropost.id }
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
