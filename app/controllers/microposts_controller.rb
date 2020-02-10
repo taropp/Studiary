@@ -28,9 +28,14 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @micropost.destroy
-    flash[:notice] = "削除しました"
-    redirect_back(fallback_location: root_path)
+    if signed_in?
+      @micropost.destroy
+      flash[:notice] = "削除しました"
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:notice] = "削除できません"
+      redirect_to micropost_path
+    end
   end
 
   private
