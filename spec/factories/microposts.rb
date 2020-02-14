@@ -6,9 +6,9 @@ FactoryBot.define do
     trait :with_comments do
       after(:create) { |micropost| create_list(:comment, 5, micropost: micropost) }
     end
-  
+
     trait :invalid do
-      content {nil}
+      content { nil }
     end
   end
 end

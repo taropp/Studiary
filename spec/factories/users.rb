@@ -4,7 +4,7 @@ FactoryBot.define do
     sequence(:email) { |n| "satoshi_kirai#{n}@example.com" }
     password { "pippikachu" }
   end
-  
+
   trait :with_microposts do
     after(:create) { |user| create_list(:micropost, 5, user: user) }
   end

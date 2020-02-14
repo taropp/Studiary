@@ -34,14 +34,14 @@ RSpec.describe User, type: :model do
     user.valid?
     expect(user.errors[:email]).to include("はすでに存在します")
   end
-  
+
   it "is invalid with a duplicate email adress" do
     FactoryBot.create(:user, email: "hogehoge@example.com")
     user = FactoryBot.build(:user, email: "hogehoge@example.com")
     user.valid?
     expect(user.errors[:email]).to include("はすでに存在します")
   end
-  
+
   it "複数の投稿を持てること" do
     user = FactoryBot.create(:user, :with_microposts)
     user.valid?
