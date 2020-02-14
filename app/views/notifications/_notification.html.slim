@@ -16,8 +16,7 @@ div class="col-md-6 mx-auto"
         = link_to "あなたの投稿", notification.micropost, style: "foot-weight: bold"
       - else
         span
-          = link_to micropost_path(notification.post) do
-            = image_tag avatar_usrl(notification.micropost).to_s, class: "icon_mini"
+          = link_to micropost_path(notification.micropost) do
             strong
               = notification.micropost.user.name + "さんの投稿"
       = "にコメントしました"
