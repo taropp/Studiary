@@ -25,3 +25,5 @@
 /.env
 
 /public/uploads
+
+/app/views/shared/_micropost_form.html.erb

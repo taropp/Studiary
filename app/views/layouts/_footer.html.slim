@@ -9,5 +9,5 @@ footer.footer.container
     ul
       li
         - if user_signed_in?
-          = link_to new_micropost_path, remote: true, class: "btn btn-lg btn-primary" do
+          = link_to new_micropost_path, class: "btn btn-lg btn-primary" do
             i.fas.fa-camera
