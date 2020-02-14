@@ -1,9 +1,12 @@
-div class="header navbar navbar-fixed-top navbar-inverse bg-secondary"
+header.navbar.navbar-fixed-top.navbar-inverse
   .container
     = link_to 'CloneApp', root_path, id: "logo"
     nav
-      ul class="nav navbar-nav navbar-right"
+      ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          li.search
+            = search_form_for @search, url: microposts_path do |f|
+              = f.text_field :content_or_user_name_cont ,placeholder: '検索：名前/投稿内容'
           li
             = link_to '通知', notifications_path
           li
