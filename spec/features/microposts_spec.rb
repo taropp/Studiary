@@ -6,9 +6,8 @@ RSpec.feature "Microposts", type: :feature do
   scenario "ユーザーは新しいプロジェクトを作成する" do
     user = FactoryBot.create(:user)
     sign_in user
-    visit root_path
+    visit new_micropost_path
     expect do
-      click_link "CloneApp"
       fill_in "micropost_content", with: "foobar"
       click_button "投稿"
     end.to change(user.microposts, :count).by(1)
