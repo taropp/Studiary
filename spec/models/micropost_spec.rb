@@ -9,36 +9,36 @@ RSpec.describe Micropost, type: :model do
     )
   end
 
-  it "ユーザー単位では重複した内容の投稿はできないこと" do
-    @user.microposts.create(
-      content: "hagehage"
-    )
-
-    new_micropost = @user.microposts.build(
-      content: "hagehage"
-    )
-
-    new_micropost.valid?
-    expect(new_micropost.errors[:content]).to include("はすでに存在します")
-  end
-
-  it "二人のユーザーが同じ投稿をすることは許可すること" do
-    @user.microposts.create(
-      content: "hagehage"
-    )
-
-    other_user = User.create(
-      name: "ホウオウ",
-      email: "tests@example.com",
-      password: "hogehoge"
-    )
-
-    other_micropost = other_user.microposts.build(
-      content: "hagehage"
-    )
-
-    expect(other_micropost).to be_valid
-  end
+  # it "ユーザー単位では重複した内容の投稿はできないこと" do
+  #   @user.microposts.create(
+  #     content: "hagehage"
+  #   )
+  #
+  #   new_micropost = @user.microposts.build(
+  #     content: "hagehage"
+  #   )
+  #
+  #   new_micropost.valid?
+  #   expect(new_micropost.errors[:content]).to include("はすでに存在します")
+  # end
+  #
+  # it "二人のユーザーが同じ投稿をすることは許可すること" do
+  #   @user.microposts.create(
+  #     content: "hagehage"
+  #   )
+  #
+  #   other_user = User.create(
+  #     name: "ホウオウ",
+  #     email: "tests@example.com",
+  #     password: "hogehoge"
+  #   )
+  #
+  #   other_micropost = other_user.microposts.build(
+  #     content: "hagehage"
+  #   )
+  #
+  #   expect(other_micropost).to be_valid
+  # end
 
   describe "投稿できる文字数を140字以内に制限する" do
     before do

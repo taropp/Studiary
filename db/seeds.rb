@@ -25,7 +25,7 @@ followers.each { |follower| follower.follow(user) }
 
 5.times do |n|
   Like.create!(
-    post_id: 295,
+    micropost_id: 295,
     user_id: n + 1
     )
 end

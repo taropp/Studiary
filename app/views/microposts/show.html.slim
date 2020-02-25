@@ -1,6 +1,6 @@
 = link_to(@user.name, "/users/#{@user.id}")
 = @micropost.content
-- if Like.find_by(user_id: current_user.id, post_id: @micropost.id)
+- if Like.find_by(user_id: current_user.id, micropost_id: @micropost.id)
   = link_to("/likes/#{@micropost.id}/destroy", {method: "post"}) do
     i.fas.fa-heart
 - else

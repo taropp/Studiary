@@ -2,31 +2,31 @@ require 'rails_helper'
 
 RSpec.describe MicropostsController, type: :controller do
   describe "#index" do
-    context "as an authenticated user" do
+    context "認証済みユーザーである時" do
       before do
         @user = FactoryBot.create(:user)
       end
 
-      it "responds succsessfully" do
+      it "正しいレスポンスが来ること" do
         sign_in @user
         get :index
         expect(response).to be_successful
       end
 
-      it "returns a 200 response" do
+      it "200レスが返ってくること" do
         sign_in @user
         get :index
         expect(response).to have_http_status "200"
       end
     end
 
-    context "as a guest" do
-      it "returns a 302 response" do
+    context "ゲストである時" do
+      it "302レスが返ってくること" do
         get :index
         expect(response).to have_http_status "302"
       end
 
-      it "redirects to the sign-in page" do
+      it "ログイン画面へ戻ること" do
         get :index
         expect(response).to redirect_to "/users/sign_in"
       end
@@ -63,7 +63,7 @@ RSpec.describe MicropostsController, type: :controller do
   end
 
   describe "#create" do
-    context "認証済みユーザーとして" do
+    context "認証済みユーザーである時" do
       before do
         @user = FactoryBot.create(:user)
       end
@@ -83,22 +83,22 @@ RSpec.describe MicropostsController, type: :controller do
           micropost_params = FactoryBot.attributes_for(:micropost, :invalid)
           sign_in @user
           expect do
-            post :create, params: { micropost: micropost_params }
+            micropost :create, params: { micropost: micropost_params }
           end.to change(@user.microposts, :count).by(0)
         end
       end
     end
 
-    context "ゲストとして" do
+    context "ゲストである時" do
       it "302レスを返すこと" do
         micropost_params = FactoryBot.attributes_for(:micropost)
-        post :create, params: { micropsot: micropost_params }
+        micropost :create, params: { micropsot: micropost_params }
         expect(response).to have_http_status "302"
       end
 
       it "ログイン画面に戻ること" do
         micropost_params = FactoryBot.attributes_for(:micropost)
-        post :create, params: { micropost: micropost_params }
+        micropost :create, params: { micropost: micropost_params }
         expect(response).to redirect_to "/users/sign_in"
       end
     end

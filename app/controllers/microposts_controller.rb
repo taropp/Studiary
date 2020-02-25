@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
   def show
     @micropost = Micropost.find_by(id: params[:id])
     @user = @micropost.user
-    @likes_count = Like.where(post_id: @micropost.id).count
+    @likes_count = Like.where(micropost_id: @micropost.id).count
     @comments = @micropost.comments.includes(:user)
     @comment = @micropost.comments.build(user_id: current_user.id)
   end
