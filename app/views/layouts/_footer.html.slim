@@ -1,3 +1,4 @@
+- @micropost = Micropost.new unless @micropost
 footer.footer.container
   small
     |  The  Studiary by
@@ -6,9 +7,21 @@ footer.footer.container
     div
       = link_to '利用規約', page_path('terms')
   nav
-    ul
-      li
-        - if user_signed_in?
-          = link_to new_micropost_path, class: "btn btn-lg btn-primary" do
-            i.fas.fa-camera
-            
+  ul
+    li
+      - if user_signed_in?
+        button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foo"
+          i.fas.fa-camera
+        .modal.fade#foo
+          .modal-dialog
+            .modal-content
+              = form_for(@micropost) do |f|
+                .modal-header
+                  button type="button" class="close" data-dissmiss="modal"
+                .modal-body
+                  .field
+                    = f.text_area :content, class: "post-content", placeholder: "記入欄：20文字以内"
+                    = f.file_field :picture, accept: '/jpeg/png'
+                .modal-footer
+                  button type="button" class="btn btn-primary"
+                    = f.submit "投稿", class: "btn text-white"

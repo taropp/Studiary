@@ -1,22 +1,23 @@
 header.navbar.navbar-fixed-top.navbar-inverse
   .container
-    = link_to 'Studiary', root_path, id: "logo"
-    nav
-      ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          li.search
-            = search_form_for @search, url: microposts_path do |f|
-              = f.text_field :content_or_user_name_cont ,placeholder: '検索：名前/投稿内容'
-          li
-            = link_to '通知', notifications_path
-          li
-            = link_to 'ユーザー一覧', users_path
-          li
-            = link_to 'マイページ', current_user
-          li
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete
-        - else
-          li
-            = link_to 'サインアップ', new_user_registration_path
-          li
-            = link_to 'ログイン', new_user_session_path
+    = link_to 'Studiary', root_path, id: "logo", class: "text-white display-3"
+    ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        li.search
+          = search_form_for @search, url: microposts_path do |f|
+            = f.text_field :content_or_user_name_cont ,placeholder: '検索：名前/投稿内容'
+        .dropdown
+          button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+          .dropdown-menu
+            li.dropdown-item
+              = link_to 'マイページ', current_user
+            li.dropdown-item
+              = link_to '通知', notifications_path
+            .divider
+            li.dropdown-item
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      - else
+        li
+          = link_to 'サインアップ', new_user_registration_path
+        li
+          = link_to 'ログイン', new_user_session_path
