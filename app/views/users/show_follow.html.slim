@@ -1,0 +1,6 @@
+- provide(:title) 
+h3 = @title
+- if @users.any?
+  ul.users.follow
+    = render @users 
+  = paginate @users
