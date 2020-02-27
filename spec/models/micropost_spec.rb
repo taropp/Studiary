@@ -40,20 +40,20 @@ RSpec.describe Micropost, type: :model do
   #   expect(other_micropost).to be_valid
   # end
 
-  describe "投稿できる文字数を140字以内に制限する" do
+  describe "投稿できる文字数を20字以内に制限する" do
     before do
-      @micropost1 = @user.microposts.create(content: "a" * 141)
-      @micropost2 = @user.microposts.create(content: "a" * 139)
-      @micropost3 = @user.microposts.create(content: "a" * 140)
+      @micropost1 = @user.microposts.create(content: "a" * 21)
+      @micropost2 = @user.microposts.create(content: "a" * 19)
+      @micropost3 = @user.microposts.create(content: "a" * 20)
     end
 
-    context "140字を超える時" do
+    context "20字を超える時" do
       it "投稿できませんと返すこと" do
-        expect(@micropost1.errors[:content]).to include("は140文字以内で入力してください")
+        expect(@micropost1.errors[:content]).to include("は20文字以内で入力してください")
       end
     end
 
-    context "140字を超えない時" do
+    context "20字を超えない時" do
       it "投稿しましたと返すこと" do
         expect(@micropost2).to be_valid
         expect(@micropost3).to be_valid
