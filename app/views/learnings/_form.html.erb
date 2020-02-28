@@ -1,8 +1,17 @@
 <div class="col-md-6">
   <%= form_with model: @learning do |f| %>
-    <%= f.text_field :learning_time, placeholder: "学習時間" %>
-    <%= f.text_field :subject, placeholder: "課題目", class: "w-20", rows: "3" %>
-    <%= f.text_area :content, placeholder: "詳細内容", class: "w-100", rows: "10" %>
+    <div class="minutes">
+      <%= f.text_field :learning_time, placeholder: "学習時間" %>
+      <%= f.label "分" %>
+    </div>
+    <div class="subject">
+      <%= f.label "学習内容" %>
+      <%= f.text_field :subject, placeholder: "課題", class: "d-inline-block", rows: "3" %>
+    </div>
+    <div class="l_content">
+      <%= f.label "学習記録" %>
+      <%= f.text_area :content, placeholder: "詳細内容", class: "w-100", rows: "10" %>
+    </div>
     <%= f.submit "記録する" %>
   <% end %>
 </div>

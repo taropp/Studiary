@@ -1,15 +1,9 @@
 <div class="container">
   <div class="row o-3column">
-    <div class="col-md-4">
-      <%= render @learnings %>
-    </div>
-    <div class="col-md-4">
-      <h2>３カラム見出しテキスト</h2>
-      テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-    </div>
-    <div class="col-md-4">
-      <h2>３カラム見出しテキスト</h2>
-      テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-    </div>
+    <% @learnings.each do |learning| %>
+      <div class="col-md-4">
+        <%= render learning %>
+      </div>
+    <% end %>
   </div>
 </div>

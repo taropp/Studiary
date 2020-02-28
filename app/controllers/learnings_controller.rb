@@ -23,4 +23,10 @@ class LearningsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def learning_params
+    params.require(:learning).permit(:learning_time, :subject, :content)
+  end
 end
