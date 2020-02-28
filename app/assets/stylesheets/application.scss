@@ -9,18 +9,21 @@ ul, li {
 }
 input {
   width: 100%;
+  height: 30px;
 }
 
 .post-sub, .post-content {
   width: 30%;
 }
-//
-// input{
-//  height: 30px;
-//  margin-top: 10px;
-//  width: 200px;
-// }
-//
+
+.dropdown-item {
+  padding-left: 2rem;
+}
+
+.log-check {
+  width: 1.5rem;
+}
+
 // /* universal */
 // ul,li{
 //   list-style: none;
@@ -72,22 +75,19 @@ input {
 // }
 //
 //
-// /* header */
-//
-// #logo {
-//   float: left;
-//   margin-right: 10px;
-//   font-size: 1.7em;
-//   color: white;
-//   text-transform: uppercase;
-//   letter-spacing: -1px;
-//   padding-top: 9px;
-//   font-weight: bold;
-//   &:hover {
-//     color: white;
-//     text-decoration: none;
-//   }
-// }
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  color: white;
+  letter-spacing: -1px;
+  font-weight: bold;
+  &:hover {
+    color: $gray-light;
+    text-decoration: none;
+  }
+}
 //
 // /* footer */
 //
@@ -145,46 +145,3 @@ footer {
 .last{
   text-align: right;
 }
-
-//
-//
-// #user_remember_me{
-//   width: 15px;
-//   height: 15px;
-// }
-//
-// label{
-//   margin-top: 20px;
-// }
-//
-// input{
-//   margin-top: 5px;
-// }
-//
-// #q_content_or_user_name_cont{
-//   margin-top: 10px;
-// }
-//
-// @media (min-width: 1439px){
-//
-// .footer{
-//   margin: 50px 135px;
-// }
-// }
-//
-// @media (max-width: 767px){
-//
-// .navbar-right li{
-//   display: inline-block;
-// }
-//
-// #logo{
-//   margin-top: 10px;
-// }
-// }
-//
-// .tweet textarea{
-//   width: 100%;
-//   height: 150px;
-//   font-size: 1.4em;
-// }

@@ -1,7 +1,8 @@
-.row
-  - if @feed_items.any?
-    .ol.microposts.list-unstyled.list-inline
-      - @feed_items.each do |item|
-        .col-md-3.list-inline-item
-          = render item
-    = paginate @feed_items
+.container
+  .row.o-3column
+    - if @feed_items.any?
+      .ol.list-unstyled
+        - @feed_items.each do |item|
+          .col-md-4
+            = render item
+      = paginate @feed_items

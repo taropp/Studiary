@@ -10,12 +10,12 @@ footer.footer.container
   ul
     li
       - if user_signed_in?
-        button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foo"
+        button type="button" class="btn btn-primary" data-toggle="modal" data-target="#record"
           i.fas.fa-camera
-        .modal.fade#foo
+        .modal.fade#record
           .modal-dialog
             .modal-content
-              = form_for(@micropost) do |f|
+              = form_with model: @micropost do |f|
                 .modal-header
                   button type="button" class="close" data-dissmiss="modal"
                 .modal-body

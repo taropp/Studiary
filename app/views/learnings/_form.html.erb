@@ -1,6 +1,8 @@
-<%= form_with model: @learning do %>
-  <%= form.text_field :learning_time, placeholder: "学習時間" %>
-  <%= form.text_field :subject, placeholder: "課題目" %>
-  <%= form.text_field :content, placeholder: "詳細内容" %>
-  <%= form.submit %>
-<% end %>
+<div class="col-md-6">
+  <%= form_with model: @learning do |f| %>
+    <%= f.text_field :learning_time, placeholder: "学習時間" %>
+    <%= f.text_field :subject, placeholder: "課題目", class: "w-20", rows: "3" %>
+    <%= f.text_area :content, placeholder: "詳細内容", class: "w-100", rows: "10" %>
+    <%= f.submit "記録する" %>
+  <% end %>
+</div>
