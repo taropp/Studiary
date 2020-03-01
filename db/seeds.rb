@@ -2,7 +2,7 @@ User.create!(name:  "マグマラシ",
              email: "example@hoge.com",
              password:              "foobar",
              password_confirmation: "foobar")
-50.times do |n|
+10.times do |n|
   name  = Faker::Games::Pokemon.name
   email = "example-#{n+1}@hoge.com"
   password = "password"
@@ -12,8 +12,8 @@ User.create!(name:  "マグマラシ",
                password_confirmation: password)
 end
 users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(2)
+16.times do
+  content = Faker::Lorem.sentence(1)
   users.each { |user| user.microposts.create!(content: content) }
 end
 users = User.all
