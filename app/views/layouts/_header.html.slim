@@ -1,29 +1,22 @@
-nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-primary
+header.navbar.navbar-fixed-top.navbar-inverse
   .container
-    .navbar-brand.mr-auto
-      = link_to 'Studiary', root_path, id: "logo", class: "text-white display-3"
-    / button.navbar-toggler type="button" data-toggle="collapse" data-target="#List"
-    /   span.navbar-toggler-icon
-    .collapse.navbar-collapse#List
-      - if user_signed_in?
-        ul.navbar-nav.mr-auto
+    = link_to 'Studiary', root_path, id: "logo"
+    nav
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
           li.search
             = search_form_for @search, url: microposts_path do |f|
               = f.text_field :content_or_user_name_cont ,placeholder: '検索：名前/投稿内容'
-        ul.navbar-nav
-          li.nav-item.dropdown
-            a class="nav-link dropdown-toggle p-0" id="#List" role="button" data-toggle="dropdown"
-              span.navbar-toggler-icon
-            .dropdown-menu aria-labelledby="List"
-              .dropdown-item.pl-1
-                = link_to 'マイページ', current_user, class: "d-block", data: { turbolinks: :false }
-              .dropdown-item.pl-1
-                = link_to '通知', notifications_path, class: "d-block", data: { turbolinks: :false }
-              .divider
-              .dropdown-item.pl-2
-                = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "d-block"
-      - else
-        li
-          = link_to 'サインアップ', new_user_registration_path
-        li
-          = link_to 'ログイン', new_user_session_path
+          li
+            = link_to '通知', notifications_path
+          li
+            = link_to 'ユーザー一覧', users_path
+          li
+            = link_to 'マイページ', current_user
+          li
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        - else
+          li
+            = link_to 'サインアップ', new_user_registration_path
+          li
+            = link_to 'ログイン', new_user_session_path

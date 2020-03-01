@@ -18,10 +18,7 @@ h2
     | </a>
     = c.content
     hr
-.row
-  .container
-    .col-3
-      = form_for [@micropost, @comment] do |f|
-        = f.text_field :content
-        br
-        = f.submit 'コメントする'
+= form_for [@micropost, @comment] do |f|
+  = f.text_field :content
+  br
+  = f.submit 'コメントする'

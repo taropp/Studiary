@@ -83,7 +83,7 @@ RSpec.describe MicropostsController, type: :controller do
           micropost_params = FactoryBot.attributes_for(:micropost, :invalid)
           sign_in @user
           expect do
-            post :create, params: { micropost: micropost_params }
+            micropost :create, params: { micropost: micropost_params }
           end.to change(@user.microposts, :count).by(0)
         end
       end
@@ -92,13 +92,13 @@ RSpec.describe MicropostsController, type: :controller do
     context "ゲストである時" do
       it "302レスを返すこと" do
         micropost_params = FactoryBot.attributes_for(:micropost)
-        post :create, params: { micropsot: micropost_params }
+        micropost :create, params: { micropsot: micropost_params }
         expect(response).to have_http_status "302"
       end
 
       it "ログイン画面に戻ること" do
         micropost_params = FactoryBot.attributes_for(:micropost)
-        post :create, params: { micropost: micropost_params }
+        micropost :create, params: { micropost: micropost_params }
         expect(response).to redirect_to "/users/sign_in"
       end
     end

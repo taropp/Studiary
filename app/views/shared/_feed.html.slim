@@ -1,8 +1,4 @@
-.container
-  .row.o-3column
-    - if @feed_items.any?
-      .ol.list-unstyled
-        - @feed_items.each do |item|
-          .col-md-4
-            = render item
-      = paginate @feed_items
+- if @feed_items.any?
+  ol.microposts
+    = render @feed_items
+  = paginate @feed_items
