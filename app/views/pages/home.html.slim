@@ -1,6 +1,7 @@
-- provide(:title, "home")
-div
+- @learning = Learning.new unless @learning
+- provide(:title, "ホーム")
+.container
   = render 'shared/user_info'
   = render 'shared/stats'
-h3 投稿一覧
+  = render 'learnings/form'
 = render 'shared/feed'

@@ -1,11 +1,11 @@
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group field tweet">
-      <%= f.text_area :content, placeholder: "記入欄" %>
+      <%= f.text_area :content, class: "post-content", placeholder: "記入欄：20文字以内" %>
     </div>
     <%= f.file_field :picture, accept: '/jpeg/png' %>
     <div class="actions">
-      <%= f.submit "投稿", class: "btn btn-primary" %>
+      <%= f.submit "投稿", class: "btn btn-primary post-sub" %>
     </div>
 <% end %>
 <script type="text/javascript">

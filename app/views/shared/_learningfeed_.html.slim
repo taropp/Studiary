@@ -1,0 +1,8 @@
+.container
+  .row.o-3column
+    - if @learningfeed_items.any?
+      .ol.list-unstyled
+        - @learningfeed_items.each do |item|
+          .col-md-4
+            = render item
+      = paginate @learningfeed_items
