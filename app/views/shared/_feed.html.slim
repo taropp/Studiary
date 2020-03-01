@@ -3,6 +3,5 @@
     - if @feed_items.any?
       .ol.list-unstyled
         - @feed_items.each do |item|
-          .col-md-4
-            = render item
+          = render item
       = paginate @feed_items

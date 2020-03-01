@@ -1,6 +1,6 @@
-nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-primary
+nav.navbar.fixed-top.navbar-expand-lg.navbar-light.header
   .container
-    .navbar-brand.mr-auto
+    .navbar-brand.mb-3
       = link_to 'Studiary', root_path, id: "logo", class: "text-white display-3"
     / button.navbar-toggler type="button" data-toggle="collapse" data-target="#List"
     /   span.navbar-toggler-icon
@@ -12,7 +12,7 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-primary
               = f.text_field :content_or_user_name_cont ,placeholder: '検索：名前/投稿内容'
         ul.navbar-nav
           li.nav-item.dropdown
-            a class="nav-link dropdown-toggle p-0" id="#List" role="button" data-toggle="dropdown"
+            a class="nav-link bg-secondary p-0" id="#List" role="button" data-toggle="dropdown"
               span.navbar-toggler-icon
             .dropdown-menu aria-labelledby="List"
               .dropdown-item.pl-1

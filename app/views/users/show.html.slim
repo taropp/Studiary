@@ -1,6 +1,6 @@
 - provide(:title, @user.name)
 .row
-  aside.col-md-4
+  .col-md-4
     section.user_info
       = gravatar_for @user
       p = @user.name
@@ -10,10 +10,7 @@
           i.fas.fa-user-edit
           |編集する
     = render 'follow_form'
-
-  .col-md-8
+  ul
     - if @user.microposts.any?
-      ul
-        li
-          = render @microposts
-      = paginate @microposts
+      = render @microposts
+  = paginate @microposts

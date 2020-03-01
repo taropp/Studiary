@@ -1,5 +1,6 @@
 - if @results.any?
-  |検索結果 #{@results.count} 件
+  .count
+    |検索結果 #{@results.count} 件
   - @results.each do |result|
     = render result
 - else

@@ -23,6 +23,15 @@ body{
 
   .gravatar {
     border-radius: 50%;
+    width: 30px;
+  }
+
+  li{
+    .card-img-top {
+      img {
+        padding-left: 17.33px;
+      }
+    }
   }
 
   * {
@@ -33,7 +42,12 @@ body{
   a:link {
     color: black;
   }
+
+  .header {
+    background-color: #87CEEB;
+  }
 }
+
 // /* universal */
 // ul,li{
 //   list-style: none;
