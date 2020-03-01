@@ -1,4 +1,5 @@
 - @micropost = Micropost.new unless @micropost
+- @learning = Learning.new unless @learning
 footer.footer.container
   small
     |  The  Studiary by
@@ -10,12 +11,28 @@ footer.footer.container
   ul
     li
       - if user_signed_in?
-        button type="button" class="btn btn-primary" data-toggle="modal" data-target="#record"
-          i.fas.fa-camera
+        button type="button" class="btn btn-primary btn-lg mr-2" data-toggle="modal" data-target="#record_learning"
+          i.fas.fa-pencil-alt
+        .modal.fade#record_learning
+          .modal-dialog
+            .modal-content
+              = form_for(@learning) do |l|
+                .modal-header
+                  button type="button" class="close" data-dissmiss="modal"
+                .modal-body
+                  .field
+                    = l.text_area :content, class: "post-content", placeholder: "記入欄：20文字以内"
+                    = l.file_field :picture, accept: '/jpeg/png'
+                .modal-footer
+                  button type="button" class="btn btn-primary"
+                    = l.submit "投稿", class: "btn text-white"
+
+        button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#record"
+          i.fas.fa-paw
         .modal.fade#record
           .modal-dialog
             .modal-content
-              = form_with model: @micropost do |f|
+              = form_for(@micropost) do |f|
                 .modal-header
                   button type="button" class="close" data-dissmiss="modal"
                 .modal-body

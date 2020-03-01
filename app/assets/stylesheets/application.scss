@@ -12,18 +12,28 @@ input {
   height: 30px;
 }
 
-.post-sub, .post-content {
-  width: 30%;
-}
+body{
+  .post-sub, .post-content {
+    width: 30%;
+  }
 
-.dropdown-item {
-  padding-left: 2rem;
-}
+  .log-check {
+    width: 1.5rem;
+  }
 
-.log-check {
-  width: 1.5rem;
-}
+  .gravatar {
+    border-radius: 50%;
+  }
 
+  * {
+    font-size: 1.5rem;
+    line-height: 1.428;
+  }
+
+  a:link {
+    color: black;
+  }
+}
 // /* universal */
 // ul,li{
 //   list-style: none;

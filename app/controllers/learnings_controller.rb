@@ -17,6 +17,7 @@ class LearningsController < ApplicationController
       flash[:success] = "投稿しました"
       redirect_to root_path
     else
+      @feed_items = []
       render template: "pages/home"
     end
   end
