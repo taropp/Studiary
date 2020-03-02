@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Learning, type: :model do
-
   before do
     @user = User.create(
       name: "のびた",

@@ -1,41 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it "has a valid factory" do
+  it "有効なテストデータであること" do
     expect(FactoryBot.build(:user)).to be_valid
   end
 
-  it "is valid with a name, email, and password" do
+  it "名前、メールアドレス、パスワードが揃っていれば登録できること" do
     user = FactoryBot.build(:user)
     expect(user).to be_valid
   end
 
-  it "is invalid without a name" do
+  it "名前が空では登録できないこと" do
     user = FactoryBot.build(:user, name: nil)
     user.valid?
     expect(user.errors[:name]).to include("を入力してください")
   end
 
-  it "is invalid without a name" do
-    user = FactoryBot.build(:user, name: nil)
-    user.valid?
-    expect(user.errors[:name]).to include("を入力してください")
-  end
-
-  it "同じメールアドレスでは登録できないこと" do
-    FactoryBot.create(:user, email: "test@example.com")
-
-    user = User.new(
-      name: "ホウオウ",
-      email: "test@example.com",
-      password: "foobar"
-    )
-
-    user.valid?
-    expect(user.errors[:email]).to include("はすでに存在します")
-  end
-
-  it "is invalid with a duplicate email adress" do
+  it "同じメールアドレスは登録できないこと" do
     FactoryBot.create(:user, email: "hogehoge@example.com")
     user = FactoryBot.build(:user, email: "hogehoge@example.com")
     user.valid?

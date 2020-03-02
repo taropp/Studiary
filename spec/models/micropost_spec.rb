@@ -42,7 +42,7 @@ RSpec.describe Micropost, type: :model do
 
   describe "投稿できる文字数を1字以上10字以内に制限する" do
     before do
-      @micropost0 = @user.microposts.create(content: nil )
+      @micropost0 = @user.microposts.create(content: nil)
       @micropost1 = @user.microposts.create(content: "a" * 11)
       @micropost2 = @user.microposts.create(content: "a" * 9)
       @micropost3 = @user.microposts.create(content: "a" * 10)
