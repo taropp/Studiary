@@ -2,7 +2,7 @@ User.create!(name:  "マグマラシ",
              email: "example@hoge.com",
              password:              "foobar",
              password_confirmation: "foobar")
-10.times do |n|
+20.times do |n|
   name  = Faker::Games::Pokemon.name
   email = "example-#{n+1}@hoge.com"
   password = "password"
@@ -11,21 +11,10 @@ User.create!(name:  "マグマラシ",
                password:              password,
                password_confirmation: password)
 end
-users = User.order(:created_at).take(6)
-16.times do
-  content = Faker::Lorem.sentence(1)
-  users.each { |user| user.microposts.create!(content: content) }
-end
+
 users = User.all
 user  = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..20]
+followers = users[3..15]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
-
-5.times do |n|
-  Like.create!(
-    micropost_id: 295,
-    user_id: n + 1
-    )
-end
