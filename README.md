@@ -4,7 +4,8 @@
 もっとシンプルなアプリが欲しいと感じたので自分で作りました。  
 ネコは個人的に大好きなので、癒しとして取り入れました。  
 <img width="1440" alt="スクリーンショット 2020-03-04 18 19 01" src="https://user-images.githubusercontent.com/59200493/75959146-fbf50900-5f00-11ea-8219-bb7b205a5a06.png">  
-
+<img width="1440" alt="スクリーンショット 2020-03-04 18 19 55" src="https://user-images.githubusercontent.com/59200493/75959786-3e6b1580-5f02-11ea-8390-fed003ea6217.png">  
+<img width="1440" alt="スクリーンショット 2020-03-04 18 20 10" src="https://user-images.githubusercontent.com/59200493/75959827-53e03f80-5f02-11ea-9948-af87420ace56.png">  
 
 
 # 機能一覧
